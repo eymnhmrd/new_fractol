@@ -36,7 +36,8 @@ int	main(int argc, char **argv)
             render(&f);
             mlx_hook(f.win_ptr, CLOSE_BTN, 0, end, &f);
             mlx_key_hook(f.win_ptr, key_handle, &f);
-            mlx_hook(f.win_ptr, 6, 1L<<6, mouse_move, &f);
+            if (f.fractal_type == 2)
+                mlx_hook(f.win_ptr, 6, 1L<<6, mouse_move, &f);
             mlx_loop(f.mlx_ptr);
         }
         else

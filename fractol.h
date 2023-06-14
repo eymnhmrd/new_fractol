@@ -16,7 +16,9 @@
 #define KEY_SPACE 32
 #define KEY_PLUS 61
 #define KEY_MINUS 45
-
+#define KEY_ONE 49
+#define KEY_TWO 50
+#define KEY_THREE 51
 
 typedef struct s_complex
 {
@@ -57,6 +59,7 @@ void    help(void);
 void    ft_close(t_fractal *f);
 int     end(t_fractal *f);
 int     key_handle(int key, t_fractal *f);
+void    extended_key_handle(int key, t_fractal *f);
 int     mouse_move(int x, int y, t_fractal *f);
 
 void    ft_putstr(char *str);
