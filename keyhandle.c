@@ -13,6 +13,35 @@ void    ft_close(t_fractal *f)
     exit(EXIT_SUCCESS);
 }
 
+void    move(t_fractal *f, double step, char direction)
+{
+    double  distance_x;
+    double  distance_y;
+
+    distance_x = f->max_x - f->min_x;
+    distance_y = f->max_y - f->min_y;
+    if (direction == 'R')
+    {
+        f->max_x = f->max_x + distance_x * step;
+        f->min_x = f->min_x + distance_x * step;
+    }
+    else if (direction == 'L')
+    {
+        f->max_x = f->max_x - distance_x * step;
+        f->min_x = f->min_x - distance_x * step;
+    }
+    else if (direction == 'D')
+    {
+        f->max_y = f->max_y + distance_y * step;
+        f->min_y = f->min_y + distance_y * step;
+    }
+    else if (direction == 'U')
+    {
+        f->max_y = f->max_y - distance_y * step;
+        f->min_y = f->min_y - distance_y * step; 
+    }
+}
+
 int     mouse_move(int x, int y, t_fractal *f)
 {
     if (f->fractal_type == 2)
@@ -28,7 +57,15 @@ int     key_handle(int key, t_fractal *f)
 {
     if (key == ESC)
         ft_close(f);
-    extended_key_handle(key, f);
+    else if (key == KEY_UP || key == KEY_W)
+        move(f, 0.2, 'U');
+    else if (key == KEY_RIGHT || key == KEY_D)
+        move(f, 0.2, 'R');
+    else if (key == KEY_DOWN || key == KEY_S)
+        move(f, 0.2, 'D');
+    else if (key == KEY_LEFT || key == KEY_A)
+        move(f, 0.2, 'L');
+    render(f);
     return (0);
 }
 
