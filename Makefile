@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 HEADER = fractol.h
 
-SRC = fractol.c utils.c init.c mandelbrot.c render.c julia.c burningship.c keyhandle.c
+SRC = fractol.c utils.c init.c mandelbrot.c render.c julia.c burningship.c keyhandle.c zoom.c
 
 OBJS = $(patsubst %.c,%.o,$(SRC))
 

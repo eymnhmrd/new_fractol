@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
             f.addr = (int *)mlx_get_data_addr(f.img_ptr, &f.bits_per_pixel, &f.line_length, &f.endian);
             render(&f);
             mlx_hook(f.win_ptr, CLOSE_BTN, 0, end, &f);
+            mlx_mouse_hook(f.win_ptr, mouse_press, &f);
             mlx_key_hook(f.win_ptr, key_handle, &f);
             if (f.fractal_type == 2)
                 mlx_hook(f.win_ptr, 6, 1L<<6, mouse_move, &f);

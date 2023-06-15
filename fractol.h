@@ -47,6 +47,8 @@ typedef struct s_fractal
     double      min_x;
     double      max_y;
     double      min_y;
+    double      mouse_re;
+    double      mouse_im;
     t_complex   c_ju;
 }t_fractal;
 
@@ -66,9 +68,12 @@ void    help(void);
 void    ft_close(t_fractal *f);
 int     end(t_fractal *f);
 int     key_handle(int key, t_fractal *f);
-void    extended_key_handle(int key, t_fractal *f);
 int     mouse_move(int x, int y, t_fractal *f);
 void    move(t_fractal *f, double step, char direction);
+
+int     mouse_press(int button, int x, int y, t_fractal *f);
+void    zoom(t_fractal *f, double mouse_re, double mouse_im, double interp);
+double  interpolate(double start, double end, double interp);
 
 void    ft_putstr(char *str);
 double  ft_abs(double n);

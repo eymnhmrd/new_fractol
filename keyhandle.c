@@ -68,15 +68,3 @@ int     key_handle(int key, t_fractal *f)
     render(f);
     return (0);
 }
-
-void     extended_key_handle(int key, t_fractal *f)
-{
-    if (key == KEY_ONE && f->fractal_type != 1)
-        f->fractal_type = 1;
-    else if (key == KEY_TWO && f->fractal_type != 2)
-        f->fractal_type = 2;
-    else if (key == KEY_THREE && f->fractal_type != 3)
-        f->fractal_type = 3;
-    init_bounds(f);
-    render(f);
-}
