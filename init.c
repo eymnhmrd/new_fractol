@@ -17,6 +17,7 @@ void    init_bounds(t_fractal *f)
         f->min_y = -1.5;
         f->c_ju.re = 0.353;
         f->c_ju.im = 0.353;
+        f->fix = 0;
     }
     else if (f->fractal_type == 3)
     {

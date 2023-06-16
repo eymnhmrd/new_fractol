@@ -44,7 +44,7 @@ void    move(t_fractal *f, double step, char direction)
 
 int     mouse_move(int x, int y, t_fractal *f)
 {
-    if (f->fractal_type == 2)
+    if (f->fractal_type == 2 && f->fix)
     {
         f->c_ju.re = f->min_x + ((double)x / WIDTH) * (f->max_x - f->min_x);
 		f->c_ju.im = f->min_y + ((double)y / HEIGHT) * (f->max_y - f->min_y);
@@ -65,6 +65,8 @@ int     key_handle(int key, t_fractal *f)
         move(f, 0.2, 'D');
     else if (key == KEY_LEFT || key == KEY_A)
         move(f, 0.2, 'L');
+    else if (key == KEY_SPACE)
+        f->fix = !f->fix;
     render(f);
     return (0);
 }

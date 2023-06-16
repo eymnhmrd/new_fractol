@@ -26,6 +26,7 @@
 #define KEY_DOWN 65364
 #define KEY_LEFT 65361
 #define KEY_RIGHT 65363
+#define KEY_SPACE 32
 
 typedef struct s_complex
 {
@@ -50,6 +51,7 @@ typedef struct s_fractal
     double      mouse_re;
     double      mouse_im;
     t_complex   c_ju;
+    int         fix;
 }t_fractal;
 
 int     mandelbrot(t_complex c);
